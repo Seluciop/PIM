@@ -1,0 +1,350 @@
+{
+    "Seguran\u00e7a Digital": {
+        "B\u00e1sico": [
+            {
+                "titulo": "Criando Senhas Fortes",
+                "pergunta": "Para criar uma senha forte e segura, qual das seguintes combina\u00e7\u00f5es \u00e9 a MAIS recomendada?",
+                "opcoes": [
+                    "Seu nome e data de nascimento.",
+                    "Uma sequ\u00eancia de n\u00fameros simples como 12345678.",
+                    "Uma combina\u00e7\u00e3o aleat\u00f3ria de letras mai\u00fasculas/min\u00fasculas, n\u00fameros e s\u00edmbolos com mais de 8 caracteres.",
+                    "Palavras comuns encontradas no dicion\u00e1rio.",
+                    "O nome do seu animal de estima\u00e7\u00e3o."
+                ],
+                "correta": "3"
+            },
+            {
+                "titulo": "Reconhecendo Golpes Comuns",
+                "pergunta": "Voc\u00ea recebe um e-mail inesperado de um banco conhecido, pedindo para clicar em um link para 'confirmar seus dados' devido a uma 'atividade suspeita'. Qual a melhor atitude a tomar?",
+                "opcoes": [
+                    "Clicar no link imediatamente para verificar sua conta.",
+                    "Responder ao e-mail pedindo mais informa\u00e7\u00f5es sobre a atividade suspeita.",
+                    "Encaminhar o e-mail para seus contatos para alert\u00e1-los.",
+                    "Ligar para o n\u00famero de telefone que veio no e-mail.",
+                    "Ignorar o e-mail, n\u00e3o clicar em links e, se necess\u00e1rio, entrar em contato direto com o banco pelos canais oficiais."
+                ],
+                "correta": "5"
+            },
+            {
+                "titulo": "Compartilhamento Consciente",
+                "pergunta": "Ao compartilhar informa\u00e7\u00f5es online, especialmente em redes sociais, qual tipo de informa\u00e7\u00e3o apresenta MAIOR risco de ser usada indevidamente para fraudes ou roubo de identidade?",
+                "opcoes": [
+                    "Fotos de paisagens ou comidas.",
+                    "Opini\u00f5es sobre filmes ou livros.",
+                    "Nome completo e cidade onde mora.",
+                    "Seu estado civil.",
+                    "Documentos pessoais como RG, CPF, ou comprovantes de endere\u00e7o vis\u00edveis."
+                ],
+                "correta": "5"
+            }
+        ],
+        "Intermedi\u00e1rio": [
+            {
+                "titulo": "Autentica\u00e7\u00e3o em Dois Fatores (2FA)",
+                "pergunta": "A Autentica\u00e7\u00e3o em Dois Fatores (2FA) \u00e9 uma medida de seguran\u00e7a recomendada porque:",
+                "opcoes": [
+                    "Ela apenas solicita seu e-mail duas vezes.",
+                    "Ela exige que voc\u00ea insira um c\u00f3digo adicional (geralmente enviado para seu celular) al\u00e9m da sua senha, aumentando a seguran\u00e7a mesmo que sua senha seja descoberta.",
+                    "Ela substitui completamente a necessidade de uma senha.",
+                    "Ela torna o login mais r\u00e1pido e simples.",
+                    "Ela funciona apenas em computadores, n\u00e3o em celulares."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Import\u00e2ncia das Atualiza\u00e7\u00f5es",
+                "pergunta": "Manter seus softwares (sistema operacional, navegadores, aplicativos) sempre atualizados \u00e9 crucial para a seguran\u00e7a digital porque:",
+                "opcoes": [
+                    "As atualiza\u00e7\u00f5es apenas mudam a apar\u00eancia do software.",
+                    "As atualiza\u00e7\u00f5es corrigem falhas de seguran\u00e7a (vulnerabilidades) que podem ser exploradas por hackers.",
+                    "As atualiza\u00e7\u00f5es tornam seu computador mais lento.",
+                    "As atualiza\u00e7\u00f5es adicionam apenas novos recursos desnecess\u00e1rios.",
+                    "As atualiza\u00e7\u00f5es aumentam o consumo de internet."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Seguran\u00e7a em Redes Wi-Fi P\u00fablicas",
+                "pergunta": "Voc\u00ea est\u00e1 conectado a uma rede Wi-Fi p\u00fablica e gratuita em um caf\u00e9. Qual atividade \u00e9 MENOS segura realizar neste tipo de rede?",
+                "opcoes": [
+                    "Navegar em sites de not\u00edcias.",
+                    "Fazer uma compra online ou acessar sua conta banc\u00e1ria.",
+                    "Assistir a um v\u00eddeo no YouTube.",
+                    "Pesquisar um endere\u00e7o no mapa.",
+                    "Ler artigos em blogs."
+                ],
+                "correta": "2"
+            }
+        ],
+        "Avan\u00e7ado": [
+            {
+                "titulo": "Entendendo Engenharia Social",
+                "pergunta": "Engenharia social \u00e9 uma t\u00e9cnica usada por criminosos para:",
+                "opcoes": [
+                    "Invadir computadores diretamente explorando falhas t\u00e9cnicas.",
+                    "Manipular psicologicamente as pessoas para que revelem informa\u00e7\u00f5es confidenciais ou realizem a\u00e7\u00f5es que beneficiam o golpista.",
+                    "Criar v\u00edrus de computador complexos.",
+                    "Melhorar a performance de sistemas computacionais.",
+                    "Desenvolver novos sistemas operacionais."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Benef\u00edcios dos Gerenciadores de Senhas",
+                "pergunta": "Qual a principal vantagem de utilizar um gerenciador de senhas?",
+                "opcoes": [
+                    "Ele armazena todas as suas senhas em um arquivo de texto simples no seu computador.",
+                    "Ele permite que voc\u00ea use a mesma senha f\u00e1cil de lembrar para todos os seus sites.",
+                    "Ele compartilha suas senhas com seus amigos.",
+                    "Ele te envia lembretes por e-mail para trocar de senha frequentemente.",
+                    "Ele gera senhas complexas e \u00fanicas para cada site e as armazena de forma segura, exigindo que voc\u00ea se lembre de apenas uma senha mestra."
+                ],
+                "correta": "5"
+            },
+            {
+                "titulo": "Identificando Phishing Avan\u00e7ado",
+                "pergunta": "Voc\u00ea recebe um link em uma mensagem que parece ser do seu banco. O link \u00e9 'seubanco-seguro.phishing.com'. Mesmo que a p\u00e1gina de login pare\u00e7a id\u00eantica, qual o sinal de alerta MAIS evidente de que pode ser um golpe de phishing?",
+                "opcoes": [
+                    "A p\u00e1gina pede seu nome de usu\u00e1rio e senha.",
+                    "O site tem um layout moderno.",
+                    "O site usa o protocolo HTTPS.",
+                    "A p\u00e1gina carrega muito rapidamente.",
+                    "O endere\u00e7o do site (URL) na barra do navegador n\u00e3o corresponde ao endere\u00e7o oficial do seu banco (o dom\u00ednio principal \u00e9 'phishing.com', n\u00e3o 'seubanco.com')."
+                ],
+                "correta": "5"
+            }
+        ]
+    },
+    "Pensamento L\u00f3gico Computacional": {
+        "B\u00e1sico": [
+            {
+                "titulo": "Identifica\u00e7\u00e3o de Padr\u00f5es",
+                "pergunta": "Considere a sequ\u00eancia: 5, 10, 15, 20, ... Qual o pr\u00f3ximo n\u00famero na sequ\u00eancia, seguindo o padr\u00e3o l\u00f3gico?",
+                "opcoes": [
+                    "21",
+                    "25",
+                    "30",
+                    "35",
+                    "40"
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Sequ\u00eancias e Algoritmos Simples",
+                "pergunta": "Para cozinhar um ovo frito, a sequ\u00eancia correta de passos em um algoritmo simples \u00e9:",
+                "opcoes": [
+                    "Quebrar o ovo na panela, aquecer o \u00f3leo, salgar.",
+                    "Aquecer o \u00f3leo na panela, quebrar o ovo, salgar.",
+                    "Salgar o ovo, aquecer o \u00f3leo, quebrar o ovo na panela.",
+                    "Quebrar o ovo no prato, salgar, aquecer o \u00f3leo na panela.",
+                    "Salgar a panela, aquecer o \u00f3leo, quebrar o ovo."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Introdu\u00e7\u00e3o \u00e0 L\u00f3gica Booleana",
+                "pergunta": "Na l\u00f3gica booleana, se a afirma\u00e7\u00e3o 'Est\u00e1 chovendo' \u00e9 VERDADEIRA e a afirma\u00e7\u00e3o 'Est\u00e1 frio' \u00e9 FALSA, qual o resultado da express\u00e3o 'Est\u00e1 chovendo E Est\u00e1 frio'?",
+                "opcoes": [
+                    "VERDADEIRO",
+                    "FALSO",
+                    "Depende do dia.",
+                    "Indeterminado.",
+                    "Verdadeiro se estiver ventando."
+                ],
+                "correta": "2"
+            }
+        ],
+        "Intermedi\u00e1rio": [
+            {
+                "titulo": "Instru\u00e7\u00f5es Condicionais (If/Else)",
+                "pergunta": "Um programa deve verificar a idade de um usu\u00e1rio. Se a idade for maior ou igual a 18, ele deve exibir 'Maior de idade'. Caso contr\u00e1rio, deve exibir 'Menor de idade'. Qual estrutura l\u00f3gica \u00e9 mais apropriada para isso?",
+                "opcoes": [
+                    "Um la\u00e7o de repeti\u00e7\u00e3o (loop).",
+                    "Uma instru\u00e7\u00e3o condicional (if/else).",
+                    "Apenas uma sequ\u00eancia de instru\u00e7\u00f5es diretas.",
+                    "Uma fun\u00e7\u00e3o matem\u00e1tica complexa.",
+                    "Um dicion\u00e1rio."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "La\u00e7os de Repeti\u00e7\u00e3o (Loops)",
+                "pergunta": "Voc\u00ea precisa executar um bloco de c\u00f3digo exatamente 10 vezes. Qual tipo de la\u00e7o de repeti\u00e7\u00e3o \u00e9 tipicamente usado quando o n\u00famero de repeti\u00e7\u00f5es \u00e9 conhecido previamente?",
+                "opcoes": [
+                    "La\u00e7o 'while'.",
+                    "La\u00e7o 'for'.",
+                    "Instru\u00e7\u00e3o 'if'.",
+                    "Instru\u00e7\u00e3o 'else'.",
+                    "Uma fun\u00e7\u00e3o."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Algoritmos com Valida\u00e7\u00e3o de Entrada",
+                "pergunta": "Um algoritmo pede ao usu\u00e1rio para digitar um n\u00famero inteiro. O que significa 'validar a entrada' neste contexto?",
+                "opcoes": [
+                    "Garantir que o usu\u00e1rio digite apenas letras.",
+                    "Garantir que o usu\u00e1rio digite apenas um n\u00famero inteiro e n\u00e3o texto ou s\u00edmbolos.",
+                    "Garantir que o n\u00famero digitado seja maior que 100.",
+                    "Garantir que o usu\u00e1rio digite um n\u00famero par.",
+                    "Permitir que o usu\u00e1rio digite qualquer coisa."
+                ],
+                "correta": "2"
+            }
+        ],
+        "Avan\u00e7ado": [
+            {
+                "titulo": "Tabelas Verdade e Operadores L\u00f3gicos",
+                "pergunta": "Na l\u00f3gica booleana, qual o resultado da express\u00e3o (VERDADEIRO OU FALSO) E N\u00c3O(VERDADEIRO)?",
+                "opcoes": [
+                    "VERDADEIRO",
+                    "FALSO",
+                    "Nulo",
+                    "Erro",
+                    "Depende do contexto"
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Express\u00f5es L\u00f3gicas Compostas",
+                "pergunta": "Considere as vari\u00e1veis l\u00f3gicas A=VERDADEIRO, B=FALSO, C=VERDADEIRO. Qual o valor da express\u00e3o (A E B) OU (N\u00c3O C)?",
+                "opcoes": [
+                    "VERDADEIRO",
+                    "FALSO",
+                    "Nulo",
+                    "Erro",
+                    "Indeterminado"
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Desenvolvendo Algoritmos com Decis\u00e3o e Repeti\u00e7\u00e3o",
+                "pergunta": "Para encontrar todos os n\u00fameros entre 1 e 100 que s\u00e3o m\u00faltiplos de 3 E 5, qual combina\u00e7\u00e3o de estruturas l\u00f3gicas \u00e9 essencial?",
+                "opcoes": [
+                    "Apenas um la\u00e7o de repeti\u00e7\u00e3o (loop).",
+                    "Apenas instru\u00e7\u00f5es condicionais (if).",
+                    "Uma combina\u00e7\u00e3o de la\u00e7o de repeti\u00e7\u00e3o (loop) para verificar cada n\u00famero E instru\u00e7\u00f5es condicionais (if) para checar a condi\u00e7\u00e3o de m\u00faltiplo de 3 e 5.",
+                    "Apenas sequ\u00eancias de instru\u00e7\u00f5es diretas.",
+                    "Apenas fun\u00e7\u00f5es matem\u00e1ticas."
+                ],
+                "correta": "3"
+            }
+        ]
+    },
+    "Programa\u00e7\u00e3o Python": {
+        "B\u00e1sico": [
+            {
+                "titulo": "Vari\u00e1veis e Tipos de Dados Fundamentais",
+                "pergunta": "Em Python, qual o tipo de dado mais adequado para armazenar a frase 'Ol\u00e1, mundo!'?",
+                "opcoes": [
+                    "Integer (int).",
+                    "String (str).",
+                    "Boolean (bool).",
+                    "Float (float).",
+                    "List (list)."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Operadores Matem\u00e1ticos e de Compara\u00e7\u00e3o",
+                "pergunta": "Qual o resultado da express\u00e3o Python: `(5 * 2) - 3`?",
+                "opcoes": [
+                    "7",
+                    "10",
+                    "13",
+                    "8",
+                    "9"
+                ],
+                "correta": "1"
+            },
+            {
+                "titulo": "Estruturas Condicionais em Python",
+                "pergunta": "Dado o c\u00f3digo Python: `idade = 17\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')` Qual ser\u00e1 a sa\u00edda?",
+                "opcoes": [
+                    "Maior de idade",
+                    "Menor de idade",
+                    "Nenhum dos dois (erro).",
+                    "17",
+                    "Verdadeiro"
+                ],
+                "correta": "2"
+            }
+        ],
+        "Intermedi\u00e1rio": [
+            {
+                "titulo": "Listas e Como Iterar Sobre Elas",
+                "pergunta": "Qual a forma MAIS comum de percorrer todos os elementos de uma lista em Python?",
+                "opcoes": [
+                    "Usando uma instru\u00e7\u00e3o `if`.",
+                    "Usando um la\u00e7o `for`.",
+                    "Usando uma fun\u00e7\u00e3o matem\u00e1tica.",
+                    "Usando a instru\u00e7\u00e3o `print`.",
+                    "Usando a instru\u00e7\u00e3o `return`."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Criando e Usando Fun\u00e7\u00f5es",
+                "pergunta": "Em Python, qual o principal benef\u00edcio de definir e usar fun\u00e7\u00f5es?",
+                "opcoes": [
+                    "Elas tornam o c\u00f3digo mais longo e dif\u00edcil de entender.",
+                    "Elas permitem reutilizar blocos de c\u00f3digo, organizar o programa e evitar repeti\u00e7\u00e3o.",
+                    "Elas servem apenas para realizar c\u00e1lculos complexos.",
+                    "Elas aumentam o consumo de mem\u00f3ria do programa.",
+                    "Elas tornam o c\u00f3digo mais dif\u00edcil de debugar."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Dicion\u00e1rios: Pares Chave-Valor",
+                "pergunta": "Um dicion\u00e1rio em Python \u00e9 uma cole\u00e7\u00e3o que armazena dados na forma de:",
+                "opcoes": [
+                    "Uma lista ordenada de valores.",
+                    "Pares de chave e valor, onde cada chave \u00e9 \u00fanica.",
+                    "Apenas n\u00fameros inteiros.",
+                    "Uma sequ\u00eancia de caracteres.",
+                    "Uma cole\u00e7\u00e3o de fun\u00e7\u00f5es."
+                ],
+                "correta": "2"
+            }
+        ],
+        "Avan\u00e7ado": [
+            {
+                "titulo": "Manipula\u00e7\u00e3o B\u00e1sica de Arquivos",
+                "pergunta": "Para adicionar novas linhas de texto a um arquivo existente sem apagar o conte\u00fado anterior em Python, qual modo de abertura de arquivo voc\u00ea usaria?",
+                "opcoes": [
+                    "'r' (read - leitura)",
+                    "'w' (write - escrita, sobrescreve o arquivo)",
+                    "'a' (append - adi\u00e7\u00e3o, escreve no final)",
+                    "'x' (exclusive creation - cria\u00e7\u00e3o exclusiva)",
+                    "'t' (text mode - modo texto)"
+                ],
+                "correta": "3"
+            },
+            {
+                "titulo": "Lidando com Erros: Exce\u00e7\u00f5es",
+                "pergunta": "Em Python, o que \u00e9 uma exce\u00e7\u00e3o?",
+                "opcoes": [
+                    "Um tipo especial de vari\u00e1vel.",
+                    "Um erro que ocorre durante a execu\u00e7\u00e3o do programa e interrompe seu fluxo normal.",
+                    "Uma fun\u00e7\u00e3o usada para criar loops.",
+                    "Um tipo de dado num\u00e9rico.",
+                    "Uma palavra reservada da linguagem."
+                ],
+                "correta": "2"
+            },
+            {
+                "titulo": "Introdu\u00e7\u00e3o \u00e0 Programa\u00e7\u00e3o Orientada a Objetos (POO)",
+                "pergunta": "Na Programa\u00e7\u00e3o Orientada a Objetos (POO) em Python, o que \u00e9 uma 'classe'?",
+                "opcoes": [
+                    "Um valor num\u00e9rico.",
+                    "Um tipo de erro.",
+                    "Um modelo ou 'molde' usado para criar objetos (inst\u00e2ncias), definindo seus atributos (propriedades) e m\u00e9todos (comportamentos).",
+                    "Uma fun\u00e7\u00e3o que retorna um valor booleano.",
+                    "Um tipo de la\u00e7o de repeti\u00e7\u00e3o."
+                ],
+                "correta": "3"
+            }
+        ]
+    }
+}
