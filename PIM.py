@@ -5,7 +5,9 @@ from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ARQUIVO_USUARIOS = os.path.join(BASE_DIR, 'users.json')
+# Mantemos o arquivo de aulas de perguntas
 ARQUIVO_AULAS_PERGUNTAS = os.path.join(BASE_DIR, 'aulas_perguntas.json')
+# Novo arquivo para aulas teóricas
 ARQUIVO_AULAS_TEORICAS = os.path.join(BASE_DIR, 'aulas_teoricas.json')
 
 
@@ -73,16 +75,26 @@ def garantir_arquivos():
         with open(ARQUIVO_AULAS_PERGUNTAS, 'w') as f:
             json.dump(aulas_perguntas, f, indent=4)
 
-    # Estrutura para aulas teóricas
+    # Nova estrutura para aulas teóricas
     if not os.path.exists(ARQUIVO_AULAS_TEORICAS):
         aulas_teoricas = {
-            "Programação Python": {
+            "Segurança Digital": {
                 "Básico": [
-                    {"titulo": "O Que é Python?", "conteudo": "Python é uma linguagem de programação versátil e fácil de aprender, usada para desenvolvimento web, análise de dados, inteligência artificial e mais."},
-                    {"titulo": "Variáveis e Tipos de Dados", "conteudo": "Em Python, variáveis armazenam dados. Os tipos básicos incluem strings (texto), integers (números inteiros), floats (decimais) e booleans (verdadeiro/falso)."},
-                    {"titulo": "Operadores Básicos", "conteudo": "Python suporta operações matemáticas básicas (+, -, *, /) e comparações (==, !=, >, <, >=, <=)."},
-                    {"titulo": "Estruturas Condicionais", "conteudo": "If/else permitem que o programa tome decisões baseadas em condições."}
+                    {"titulo": "Introdução à Segurança Digital", "conteudo": "Segurança digital envolve proteger seus dados e privacidade online. É essencial para evitar golpes e vazamentos de informações."},
+                    {"titulo": "Criando Senhas Fortes", "conteudo": "Uma senha forte tem pelo menos 8 caracteres, inclui letras maiúsculas e minúsculas, números e símbolos. Evite informações pessoais óbvias."},
+                    {"titulo": "Reconhecendo Golpes Comuns", "conteudo": "Fique atento a e-mails e mensagens suspeitas pedindo informações pessoais ou financeiras. Desconfie de ofertas boas demais para ser verdade."},
+                    {"titulo": "Compartilhamento Consciente", "conteudo": "Pense duas vezes antes de postar informações pessoais nas redes sociais. Dados como RG, CPF, endereço ou número de telefone podem ser usados indevidamente."},
                 ],
+                "Intermediário": [
+                    {"titulo": "O Que é Autenticação em Dois Fatores (2FA)?", "conteudo": "2FA adiciona uma camada extra de segurança. Além da senha, você precisa de um segundo fator, como um código enviado para seu celular, para acessar sua conta."},
+                    {"titulo": "Importância das Atualizações", "conteudo": "Manter sistemas operacionais, aplicativos e antivírus atualizados corrige falhas de segurança que podem ser exploradas por criminosos."},
+                    {"titulo": "Segurança em Redes Wi-Fi Públicas", "conteudo": "Redes Wi-Fi públicas são menos seguras. Evite realizar transações bancárias ou acessar informações confidenciais. Usar uma VPN pode proteger sua conexão."},
+                ],
+                "Avançado": [
+                    {"titulo": "Entendendo Engenharia Social", "conteudo": "Engenharia social é a manipulação psicológica para que pessoas revelem informações confidenciais. Desconfie de pedidos urgentes ou incomuns por telefone ou e-mail."},
+                    {"titulo": "Benefícios dos Gerenciadores de Senhas", "conteudo": "Gerenciadores de senhas criam e armazenam senhas complexas e únicas para cada site, exigindo que você se lembre de apenas uma senha mestra."},
+                    {"titulo": "Identificando Phishing Avançado", "conteudo": "Phishing sofisticado imita sites legítimos. Sempre verifique o endereço do site (URL) antes de inserir suas credenciais. Procure pelo 'https://' e o cadeado na barra de endereço."},
+                ]
             },
             "Pensamento Lógico Computacional": {
                  "Básico": [
@@ -107,390 +119,22 @@ def garantir_arquivos():
                     {"titulo": "O Que é Python?", "conteudo": "Python é uma linguagem de programação versátil e fácil de aprender, usada para desenvolvimento web, análise de dados, inteligência artificial e mais."},
                     {"titulo": "Variáveis e Tipos de Dados Fundamentais", "conteudo": "Variáveis armazenam dados. Tipos de dados comuns incluem texto (string), números inteiros (int), números decimais (float) e booleanos (bool)."},
                     {"titulo": "Operadores Matemáticos e de Comparação", "conteudo": "Python suporta operações matemáticas (+, -, *, /) e de comparação (==, !=, >, <, >=, <=) para manipular dados numéricos e tomar decisões."},
-                    {"titulo": "Estruturas Condicionais em Python (if, elif, else)", "pergunta": "Dado o código Python: `idade = 17\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')` Qual será a saída?", "opcoes": ["Maior de idade", "Menor de idade", "Nenhum dos dois (erro).", "17", "Verdadeiro"], "correta": "2"}
+                    {"titulo": "Estruturas Condicionais em Python (if, elif, else)", "conteudo": "Estruturas condicionais permitem que o programa tome decisões baseadas em condições. 'If' executa código se uma condição for verdadeira, 'elif' testa outras condições, e 'else' executa quando nenhuma condição é verdadeira."}
                 ],
                 "Intermediário": [
-                    {"titulo": "Listas e Como Iterar Sobre Elas", "pergunta": "Qual a forma MAIS comum de percorrer todos os elementos de uma lista em Python?", "opcoes": ["Usando uma instrução `if`.", "Usando um laço `for`.", "Usando uma função matemática.", "Usando a instrução `print`.", "Usando a instrução `return`."], "correta": "2"},
-                    {"titulo": "Criando e Usando Funções", "pergunta": "Em Python, qual o principal benefício de definir e usar funções?", "opcoes": ["Elas tornam o código mais longo e difícil de entender.", "Elas permitem reutilizar blocos de código, organizar o programa e evitar repetição.", "Elas servem apenas para realizar cálculos complexos.", "Elas aumentam o consumo de memória do programa.", "Elas tornam o código mais difícil de debugar."], "correta": "2"},
-                    {"titulo": "Dicionários: Pares Chave-Valor", "pergunta": "Um dicionário em Python é uma coleção que armazena dados na forma de:", "opcoes": ["Uma lista ordenada de valores.", "Pares de chave e valor, onde cada chave é única.", "Apenas números inteiros.", "Uma sequência de caracteres.", "Uma coleção de funções."], "correta": "2"}
+                    {"titulo": "Listas e Como Iterar Sobre Elas", "conteudo": "Listas armazenam múltiplos itens em uma única variável. O laço 'for' é usado para percorrer cada elemento da lista, permitindo operações em cada item."},
+                    {"titulo": "Criando e Usando Funções", "conteudo": "Funções são blocos de código reutilizáveis que executam uma tarefa específica. Elas ajudam a organizar o código, evitar repetição e tornar o programa mais modular."},
+                    {"titulo": "Dicionários: Pares Chave-Valor", "conteudo": "Dicionários armazenam dados em pares de chave-valor, onde cada chave é única. São úteis para representar dados estruturados e realizar buscas eficientes."}
                 ],
                 "Avançado": [
-                    {"titulo": "Manipulação Básica de Arquivos", "pergunta": "Para adicionar novas linhas de texto a um arquivo existente sem apagar o conteúdo anterior em Python, qual modo de abertura de arquivo você usaria?", "opcoes": ["'r' (read - leitura)", "'w' (write - escrita, sobrescreve o arquivo)", "'a' (append - adição, escreve no final)", "'x' (exclusive creation - criação exclusiva)", "'t' (text mode - modo texto)"], "correta": "3"},
-                    {"titulo": "Lidando com Erros: Exceções", "pergunta": "Em Python, o que é uma exceção?", "opcoes": ["Um tipo especial de variável.", "Um erro que ocorre durante a execução do programa e interrompe seu fluxo normal.", "Uma função usada para criar loops.", "Um tipo de dado numérico.", "Uma palavra reservada da linguagem."], "correta": "2"},
-                    {"titulo": "Introdução à Programação Orientada a Objetos (POO)", "pergunta": "Na Programação Orientada a Objetos (POO) em Python, o que é uma 'classe'?", "opcoes": ["Um valor numérico.", "Um tipo de erro.", "Um modelo ou 'molde' usado para criar objetos (instâncias), definindo seus atributos (propriedades) e métodos (comportamentos).", "Uma função que retorna um valor booleano.", "Um tipo de laço de repetição."], "correta": "3"}
-                ]
-            }
-        }
-        with open(ARQUIVO_AULAS_PERGUNTAS, 'w') as f:
-            json.dump(aulas_perguntas, f, indent=4)
-
-    # Estrutura para aulas teóricas
-    if not os.path.exists(ARQUIVO_AULAS_TEORICAS):
-        aulas_teoricas = {
-            "Segurança Digital": {
-                "Básico": [
-                    {"titulo": "Introdução à Segurança Digital", "conteudo": "Segurança digital envolve proteger seus dados e privacidade online. É essencial para evitar golpes e vazamentos de informações."},
-                    {"titulo": "Criando Senhas Fortes", "conteudo": "Uma senha forte tem pelo menos 8 caracteres, inclui letras maiúsculas e minúsculas, números e símbolos. Evite informações pessoais óbvias."},
-                    {"titulo": "Reconhecendo Golpes Comuns", "conteudo": "Fique atento a e-mails e mensagens suspeitas pedindo informações pessoais ou financeiras. Desconfie de ofertas boas demais para ser verdade."},
-                    {"titulo": "Compartilhamento Consciente", "conteudo": "Pense duas vezes antes de postar informações pessoais nas redes sociais. Dados como RG, CPF, endereço ou número de telefone podem ser usados indevidamente."},
-                ],
-                "Intermediário": [
-                    {"titulo": "O Que é Autenticação em Dois Fatores (2FA)?", "conteudo": "2FA adiciona uma camada extra de segurança. Além da senha, você precisa de um segundo fator, como um código enviado para seu celular, para acessar sua conta."},
-                    {"titulo": "Importância das Atualizações", "conteudo": "Manter sistemas operacionais, aplicativos e antivírus atualizados corrige falhas de segurança que podem ser exploradas por criminosos."},
-                    {"titulo": "Segurança em Redes Wi-Fi Públicas", "conteudo": "Redes Wi-Fi públicas são menos seguras. Evite realizar transações bancárias ou acessar informações confidenciais. Usar uma VPN pode proteger sua conexão."},
-                ],
-                "Avançado": [
-                    {"titulo": "Entendendo Engenharia Social", "conteudo": "Engenharia social é a manipulação psicológica para que pessoas revelem informações confidenciais. Desconfie de pedidos urgentes ou incomuns por telefone ou e-mail."},
-                    {"titulo": "Benefícios dos Gerenciadores de Senhas", "conteudo": "Gerenciadores de senhas criam e armazenam senhas complexas e únicas para cada site, exigindo que você se lembre de apenas uma senha mestra."},
-                    {"titulo": "Identificando Phishing Avançado", "conteudo": "Phishing sofisticado imita sites legítimos. Sempre verifique o endereço do site (URL) antes de inserir suas credenciais. Procure pelo 'https://' e o cadeado na barra de endereço."},
-                ]
-            },
-            "Pensamento Lógico Computacional": {
-                 "Básico": [
-                    {"titulo": "O Que é Pensamento Lógico?", "conteudo": "Pensamento lógico é a habilidade de organizar ideias e informações para chegar a uma conclusão ou resolver um problema de forma estruturada."},
-                    {"titulo": "Identificação de Padrões", "conteudo": "Reconhecer padrões é fundamental para prever o próximo passo em uma sequência ou entender a lógica por trás de um conjunto de dados."},
-                    {"titulo": "Sequências e Algoritmos Simples", "conteudo": "Uma sequência de instruções é um conjunto de passos ordenados para realizar uma tarefa. Um algoritmo é uma sequência finita de instruções bem definidas."},
-                    {"titulo": "Introdução à Lógica Booleana (Verdadeiro ou Falso)", "conteudo": "A lógica booleana lida com valores de Verdadeiro (True) e Falso (False) e operações como AND, OR e NOT. É a base para decisões em programação."},
-                ],
-                "Intermediário": [
-                    {"titulo": "Instruções Condicionais (If/Else)", "conteudo": "Condicionais permitem que um programa tome decisões. 'Se' uma condição for Verdadeira, faça algo; 'Senão', faça outra coisa."},
-                    {"titulo": "Laços de Repetição (Loops)", "conteudo": "Laços permitem executar um bloco de código várias vezes. O laço 'for' é comum para repetições com um número conhecido, e 'while' para repetições baseadas em uma condição."},
-                    {"titulo": "Algoritmos com Validação de Entrada", "conteudo": "Validar a entrada de dados garante que o programa receba informações no formato esperado, evitando erros e comportamentos inesperados."},
-                ],
-                "Avançado": [
-                    {"titulo": "Tabelas Verdade e Operadores Lógicos", "conteudo": "Tabelas verdade mostram todos os resultados possíveis de uma expressão lógica. Operadores lógicos (AND, OR, NOT) combinam ou modificam valores booleanos."},
-                    {"titulo": "Expressões Lógicas Compostas", "conteudo": "Combinar múltiplos operadores lógicos e condições cria expressões complexas usadas para tomar decisões mais elaboradas em algoritmos."},
-                    {"titulo": "Desenvolvendo Algoritmos com Decisão e Repetição", "conteudo": "Algoritmos mais complexos combinam estruturas de decisão (if/else) e repetição (loops) para resolver problemas que requerem múltiplos passos e verificações."},
-                ]
-            },
-             "Programação Python": {
-                "Básico": [
-                    {"titulo": "O Que é Python?", "conteudo": "Python é uma linguagem de programação versátil e fácil de aprender, usada para desenvolvimento web, análise de dados, inteligência artificial e mais."},
-                    {"titulo": "Variáveis e Tipos de Dados Fundamentais", "pergunta": "Em Python, qual o tipo de dado mais adequado para armazenar a frase 'Olá, mundo!'?", "opcoes": ["Integer (int).", "String (str).", "Boolean (bool).", "Float (float).", "List (list)."], "correta": "2"},
-                    {"titulo": "Operadores Matemáticos e de Comparação", "pergunta": "Qual o resultado da expressão Python: `(5 * 2) - 3`?", "opcoes": ["7", "10", "13", "8", "9"], "correta": "1"},
-                     {"titulo": "Estruturas Condicionais em Python", "pergunta": "Dado o código Python: `idade = 17\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')` Qual será a saída?", "opcoes": ["Maior de idade", "Menor de idade", "Nenhum dos dois (erro).", "17", "Verdadeiro"], "correta": "2"}
-                ],
-                "Intermediário": [
-                    {"titulo": "Listas e Como Iterar Sobre Elas", "pergunta": "Qual a forma MAIS comum de percorrer todos os elementos de uma lista em Python?", "opcoes": ["Usando uma instrução `if`.", "Usando um laço `for`.", "Usando uma função matemática.", "Usando a instrução `print`.", "Usando a instrução `return`."], "correta": "2"},
-                    {"titulo": "Criando e Usando Funções", "pergunta": "Em Python, qual o principal benefício de definir e usar funções?", "opcoes": ["Elas tornam o código mais longo e difícil de entender.", "Elas permitem reutilizar blocos de código, organizar o programa e evitar repetição.", "Elas servem apenas para realizar cálculos complexos.", "Elas aumentam o consumo de memória do programa.", "Elas tornam o código mais difícil de debugar."], "correta": "2"},
-                    {"titulo": "Dicionários: Pares Chave-Valor", "pergunta": "Um dicionário em Python é uma coleção que armazena dados na forma de:", "opcoes": ["Uma lista ordenada de valores.", "Pares de chave e valor, onde cada chave é única.", "Apenas números inteiros.", "Uma sequência de caracteres.", "Uma coleção de funções."], "correta": "2"}
-                ],
-                "Avançado": [
-                    {"titulo": "Manipulação Básica de Arquivos", "pergunta": "Para adicionar novas linhas de texto a um arquivo existente sem apagar o conteúdo anterior em Python, qual modo de abertura de arquivo você usaria?", "opcoes": ["'r' (read - leitura)", "'w' (write - escrita, sobrescreve o arquivo)", "'a' (append - adição, escreve no final)", "'x' (exclusive creation - criação exclusiva)", "'t' (text mode - modo texto)"], "correta": "3"},
-                    {"titulo": "Lidando com Erros: Exceções", "pergunta": "Em Python, o que é uma exceção?", "opcoes": ["Um tipo especial de variável.", "Um erro que ocorre durante a execução do programa e interrompe seu fluxo normal.", "Uma função usada para criar loops.", "Um tipo de dado numérico.", "Uma palavra reservada da linguagem."], "correta": "2"},
-                    {"titulo": "Introdução à Programação Orientada a Objetos (POO)", "pergunta": "Na Programação Orientada a Objetos (POO) em Python, o que é uma 'classe'?", "opcoes": ["Um valor numérico.", "Um tipo de erro.", "Um modelo ou 'molde' usado para criar objetos (instâncias), definindo seus atributos (propriedades) e métodos (comportamentos).", "Uma função que retorna um valor booleano.", "Um tipo de laço de repetição."], "correta": "3"}
-                ]
-            }
-        }
-        with open(ARQUIVO_AULAS_PERGUNTAS, 'w') as f:
-            json.dump(aulas_perguntas, f, indent=4)
-
-    # Estrutura para aulas teóricas
-    if not os.path.exists(ARQUIVO_AULAS_TEORICAS):
-        aulas_teoricas = {
-            "Segurança Digital": {
-                "Básico": [
-                    {"titulo": "Introdução à Segurança Digital", "conteudo": "Segurança digital envolve proteger seus dados e privacidade online. É essencial para evitar golpes e vazamentos de informações."},
-                    {"titulo": "Criando Senhas Fortes", "conteudo": "Uma senha forte tem pelo menos 8 caracteres, inclui letras maiúsculas e minúsculas, números e símbolos. Evite informações pessoais óbvias."},
-                    {"titulo": "Reconhecendo Golpes Comuns", "conteudo": "Fique atento a e-mails e mensagens suspeitas pedindo informações pessoais ou financeiras. Desconfie de ofertas boas demais para ser verdade."},
-                    {"titulo": "Compartilhamento Consciente", "conteudo": "Pense duas vezes antes de postar informações pessoais nas redes sociais. Dados como RG, CPF, endereço ou número de telefone podem ser usados indevidamente."},
-                ],
-                "Intermediário": [
-                    {"titulo": "O Que é Autenticação em Dois Fatores (2FA)?", "conteudo": "2FA adiciona uma camada extra de segurança. Além da senha, você precisa de um segundo fator, como um código enviado para seu celular, para acessar sua conta."},
-                    {"titulo": "Importância das Atualizações", "conteudo": "Manter sistemas operacionais, aplicativos e antivírus atualizados corrige falhas de segurança que podem ser exploradas por criminosos."},
-                    {"titulo": "Segurança em Redes Wi-Fi Públicas", "conteudo": "Redes Wi-Fi públicas são menos seguras. Evite realizar transações bancárias ou acessar informações confidenciais. Usar uma VPN pode proteger sua conexão."},
-                ],
-                "Avançado": [
-                    {"titulo": "Entendendo Engenharia Social", "conteudo": "Engenharia social é a manipulação psicológica para que pessoas revelem informações confidenciais. Desconfie de pedidos urgentes ou incomuns por telefone ou e-mail."},
-                    {"titulo": "Benefícios dos Gerenciadores de Senhas", "conteudo": "Gerenciadores de senhas criam e armazenam senhas complexas e únicas para cada site, exigindo que você se lembre de apenas uma senha mestra."},
-                    {"titulo": "Identificando Phishing Avançado", "conteudo": "Phishing sofisticado imita sites legítimos. Sempre verifique o endereço do site (URL) antes de inserir suas credenciais. Procure pelo 'https://' e o cadeado na barra de endereço."},
-                ]
-            },
-            "Pensamento Lógico Computacional": {
-                 "Básico": [
-                    {"titulo": "O Que é Pensamento Lógico?", "conteudo": "Pensamento lógico é a habilidade de organizar ideias e informações para chegar a uma conclusão ou resolver um problema de forma estruturada."},
-                    {"titulo": "Identificação de Padrões", "conteudo": "Reconhecer padrões é fundamental para prever o próximo passo em uma sequência ou entender a lógica por trás de um conjunto de dados."},
-                    {"titulo": "Sequências e Algoritmos Simples", "conteudo": "Uma sequência de instruções é um conjunto de passos ordenados para realizar uma tarefa. Um algoritmo é uma sequência finita de instruções bem definidas."},
-                    {"titulo": "Introdução à Lógica Booleana (Verdadeiro ou Falso)", "conteudo": "A lógica booleana lida com valores de Verdadeiro (True) e Falso (False) e operações como AND, OR e NOT. É a base para decisões em programação."},
-                ],
-                "Intermediário": [
-                    {"titulo": "Instruções Condicionais (If/Else)", "conteudo": "Condicionais permitem que um programa tome decisões. 'Se' uma condição for Verdadeira, faça algo; 'Senão', faça outra coisa."},
-                    {"titulo": "Laços de Repetição (Loops)", "conteudo": "Laços permitem executar um bloco de código várias vezes. O laço 'for' é comum para repetições com um número conhecido, e 'while' para repetições baseadas em uma condição."},
-                    {"titulo": "Algoritmos com Validação de Entrada", "conteudo": "Validar a entrada de dados garante que o programa receba informações no formato esperado, evitando erros e comportamentos inesperados."},
-                ],
-                "Avançado": [
-                    {"titulo": "Tabelas Verdade e Operadores Lógicos", "conteudo": "Tabelas verdade mostram todos os resultados possíveis de uma expressão lógica. Operadores lógicos (AND, OR, NOT) combinam ou modificam valores booleanos."},
-                    {"titulo": "Expressões Lógicas Compostas", "conteudo": "Combinar múltiplos operadores lógicos e condições cria expressões complexas usadas para tomar decisões mais elaboradas em algoritmos."},
-                    {"titulo": "Desenvolvendo Algoritmos com Decisão e Repetição", "conteudo": "Algoritmos mais complexos combinam estruturas de decisão (if/else) e repetição (loops) para resolver problemas que requerem múltiplos passos e verificações."},
-                ]
-            },
-             "Programação Python": {
-                "Básico": [
-                    {"titulo": "O Que é Python?", "conteudo": "Python é uma linguagem de programação versátil e fácil de aprender, usada para desenvolvimento web, análise de dados, inteligência artificial e mais."},
-                    {"titulo": "Variáveis e Tipos de Dados Fundamentais", "pergunta": "Em Python, qual o tipo de dado mais adequado para armazenar a frase 'Olá, mundo!'?", "opcoes": ["Integer (int).", "String (str).", "Boolean (bool).", "Float (float).", "List (list)."], "correta": "2"},
-                    {"titulo": "Operadores Matemáticos e de Comparação", "pergunta": "Qual o resultado da expressão Python: `(5 * 2) - 3`?", "opcoes": ["7", "10", "13", "8", "9"], "correta": "1"},
-                     {"titulo": "Estruturas Condicionais em Python", "pergunta": "Dado o código Python: `idade = 17\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')` Qual será a saída?", "opcoes": ["Maior de idade", "Menor de idade", "Nenhum dos dois (erro).", "17", "Verdadeiro"], "correta": "2"}
-                ],
-                "Intermediário": [
-                    {"titulo": "Listas e Como Iterar Sobre Elas", "pergunta": "Qual a forma MAIS comum de percorrer todos os elementos de uma lista em Python?", "opcoes": ["Usando uma instrução `if`.", "Usando um laço `for`.", "Usando uma função matemática.", "Usando a instrução `print`.", "Usando a instrução `return`."], "correta": "2"},
-                    {"titulo": "Criando e Usando Funções", "pergunta": "Em Python, qual o principal benefício de definir e usar funções?", "opcoes": ["Elas tornam o código mais longo e difícil de entender.", "Elas permitem reutilizar blocos de código, organizar o programa e evitar repetição.", "Elas servem apenas para realizar cálculos complexos.", "Elas aumentam o consumo de memória do programa.", "Elas tornam o código mais difícil de debugar."], "correta": "2"},
-                    {"titulo": "Dicionários: Pares Chave-Valor", "pergunta": "Um dicionário em Python é uma coleção que armazena dados na forma de:", "opcoes": ["Uma lista ordenada de valores.", "Pares de chave e valor, onde cada chave é única.", "Apenas números inteiros.", "Uma sequência de caracteres.", "Uma coleção de funções."], "correta": "2"}
-                ],
-                "Avançado": [
-                    {"titulo": "Manipulação Básica de Arquivos", "pergunta": "Para adicionar novas linhas de texto a um arquivo existente sem apagar o conteúdo anterior em Python, qual modo de abertura de arquivo você usaria?", "opcoes": ["'r' (read - leitura)", "'w' (write - escrita, sobrescreve o arquivo)", "'a' (append - adição, escreve no final)", "'x' (exclusive creation - criação exclusiva)", "'t' (text mode - modo texto)"], "correta": "3"},
-                    {"titulo": "Lidando com Erros: Exceções", "pergunta": "Em Python, o que é uma exceção?", "opcoes": ["Um tipo especial de variável.", "Um erro que ocorre durante a execução do programa e interrompe seu fluxo normal.", "Uma função usada para criar loops.", "Um tipo de dado numérico.", "Uma palavra reservada da linguagem."], "correta": "2"},
-                    {"titulo": "Introdução à Programação Orientada a Objetos (POO)", "pergunta": "Na Programação Orientada a Objetos (POO) em Python, o que é uma 'classe'?", "opcoes": ["Um valor numérico.", "Um tipo de erro.", "Um modelo ou 'molde' usado para criar objetos (instâncias), definindo seus atributos (propriedades) e métodos (comportamentos).", "Uma função que retorna um valor booleano.", "Um tipo de laço de repetição."], "correta": "3"}
-                ]
-            }
-        }
-        with open(ARQUIVO_AULAS_PERGUNTAS, 'w') as f:
-            json.dump(aulas_perguntas, f, indent=4)
-
-    # Estrutura para aulas teóricas
-    if not os.path.exists(ARQUIVO_AULAS_TEORICAS):
-        aulas_teoricas = {
-            "Segurança Digital": {
-                "Básico": [
-                    {"titulo": "Introdução à Segurança Digital", "conteudo": "Segurança digital envolve proteger seus dados e privacidade online. É essencial para evitar golpes e vazamentos de informações."},
-                    {"titulo": "Criando Senhas Fortes", "conteudo": "Uma senha forte tem pelo menos 8 caracteres, inclui letras maiúsculas e minúsculas, números e símbolos. Evite informações pessoais óbvias."},
-                    {"titulo": "Reconhecendo Golpes Comuns", "conteudo": "Fique atento a e-mails e mensagens suspeitas pedindo informações pessoais ou financeiras. Desconfie de ofertas boas demais para ser verdade."},
-                    {"titulo": "Compartilhamento Consciente", "conteudo": "Pense duas vezes antes de postar informações pessoais nas redes sociais. Dados como RG, CPF, endereço ou número de telefone podem ser usados indevidamente."},
-                ],
-                "Intermediário": [
-                    {"titulo": "O Que é Autenticação em Dois Fatores (2FA)?", "conteudo": "2FA adiciona uma camada extra de segurança. Além da senha, você precisa de um segundo fator, como um código enviado para seu celular, para acessar sua conta."},
-                    {"titulo": "Importância das Atualizações", "conteudo": "Manter sistemas operacionais, aplicativos e antivírus atualizados corrige falhas de segurança que podem ser exploradas por criminosos."},
-                    {"titulo": "Segurança em Redes Wi-Fi Públicas", "conteudo": "Redes Wi-Fi públicas são menos seguras. Evite realizar transações bancárias ou acessar informações confidenciais. Usar uma VPN pode proteger sua conexão."},
-                ],
-                "Avançado": [
-                    {"titulo": "Entendendo Engenharia Social", "conteudo": "Engenharia social é a manipulação psicológica para que pessoas revelem informações confidenciais. Desconfie de pedidos urgentes ou incomuns por telefone ou e-mail."},
-                    {"titulo": "Benefícios dos Gerenciadores de Senhas", "conteudo": "Gerenciadores de senhas criam e armazenam senhas complexas e únicas para cada site, exigindo que você se lembre de apenas uma senha mestra."},
-                    {"titulo": "Identificando Phishing Avançado", "conteudo": "Phishing sofisticado imita sites legítimos. Sempre verifique o endereço do site (URL) antes de inserir suas credenciais. Procure pelo 'https://' e o cadeado na barra de endereço."},
-                ]
-            },
-            "Pensamento Lógico Computacional": {
-                 "Básico": [
-                    {"titulo": "O Que é Pensamento Lógico?", "conteudo": "Pensamento lógico é a habilidade de organizar ideias e informações para chegar a uma conclusão ou resolver um problema de forma estruturada."},
-                    {"titulo": "Identificação de Padrões", "conteudo": "Reconhecer padrões é fundamental para prever o próximo passo em uma sequência ou entender a lógica por trás de um conjunto de dados."},
-                    {"titulo": "Sequências e Algoritmos Simples", "conteudo": "Uma sequência de instruções é um conjunto de passos ordenados para realizar uma tarefa. Um algoritmo é uma sequência finita de instruções bem definidas."},
-                    {"titulo": "Introdução à Lógica Booleana (Verdadeiro ou Falso)", "conteudo": "A lógica booleana lida com valores de Verdadeiro (True) e Falso (False) e operações como AND, OR e NOT. É a base para decisões em programação."},
-                ],
-                "Intermediário": [
-                    {"titulo": "Instruções Condicionais (If/Else)", "conteudo": "Condicionais permitem que um programa tome decisões. 'Se' uma condição for Verdadeira, faça algo; 'Senão', faça outra coisa."},
-                    {"titulo": "Laços de Repetição (Loops)", "conteudo": "Laços permitem executar um bloco de código várias vezes. O laço 'for' é comum para repetições com um número conhecido, e 'while' para repetições baseadas em uma condição."},
-                    {"titulo": "Algoritmos com Validação de Entrada", "conteudo": "Validar a entrada de dados garante que o programa receba informações no formato esperado, evitando erros e comportamentos inesperados."},
-                ],
-                "Avançado": [
-                    {"titulo": "Tabelas Verdade e Operadores Lógicos", "conteudo": "Tabelas verdade mostram todos os resultados possíveis de uma expressão lógica. Operadores lógicos (AND, OR, NOT) combinam ou modificam valores booleanos."},
-                    {"titulo": "Expressões Lógicas Compostas", "conteudo": "Combinar múltiplos operadores lógicos e condições cria expressões complexas usadas para tomar decisões mais elaboradas em algoritmos."},
-                    {"titulo": "Desenvolvendo Algoritmos com Decisão e Repetição", "conteudo": "Algoritmos mais complexos combinam estruturas de decisão (if/else) e repetição (loops) para resolver problemas que requerem múltiplos passos e verificações."},
-                ]
-            },
-             "Programação Python": {
-                "Básico": [
-                    {"titulo": "O Que é Python?", "conteudo": "Python é uma linguagem de programação versátil e fácil de aprender, usada para desenvolvimento web, análise de dados, inteligência artificial e mais."},
-                    {"titulo": "Variáveis e Tipos de Dados Fundamentais", "conteudo": "Em Python, qual o tipo de dado mais adequado para armazenar a frase 'Olá, mundo!'?", "opcoes": ["Integer (int).", "String (str).", "Boolean (bool).", "Float (float).", "List (list)."], "correta": "2"},
-                    {"titulo": "Operadores Matemáticos e de Comparação", "conteudo": "Qual o resultado da expressão Python: `(5 * 2) - 3`?", "opcoes": ["7", "10", "13", "8", "9"], "correta": "1"},
-                     {"titulo": "Estruturas Condicionais em Python", "conteudo": "Dado o código Python: `idade = 17\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')` Qual será a saída?", "opcoes": ["Maior de idade", "Menor de idade", "Nenhum dos dois (erro).", "17", "Verdadeiro"], "correta": "2"}
-                ],
-                "Intermediário": [
-                    {"titulo": "Listas e Como Iterar Sobre Elas", "conteudo": "Qual a forma MAIS comum de percorrer todos os elementos de uma lista em Python?", "opcoes": ["Usando uma instrução `if`.", "Usando um laço `for`.", "Usando uma função matemática.", "Usando a instrução `print`.", "Usando a instrução `return`."], "correta": "2"},
-                    {"titulo": "Criando e Usando Funções", "conteudo": "Em Python, qual o principal benefício de definir e usar funções?", "opcoes": ["Elas tornam o código mais longo e difícil de entender.", "Elas permitem reutilizar blocos de código, organizar o programa e evitar repetição.", "Elas servem apenas para realizar cálculos complexos.", "Elas aumentam o consumo de memória do programa.", "Elas tornam o código mais difícil de debugar."], "correta": "2"},
-                    {"titulo": "Dicionários: Pares Chave-Valor", "conteudo": "Um dicionário em Python é uma coleção que armazena dados na forma de:", "opcoes": ["Uma lista ordenada de valores.", "Pares de chave e valor, onde cada chave é única.", "Apenas números inteiros.", "Uma sequência de caracteres.", "Uma coleção de funções."], "correta": "2"}
-                ],
-                "Avançado": [
-                    {"titulo": "Manipulação Básica de Arquivos", "conteudo": "Para adicionar novas linhas de texto a um arquivo existente sem apagar o conteúdo anterior em Python, qual modo de abertura de arquivo você usaria?", "opcoes": ["'r' (read - leitura)", "'w' (write - escrita, sobrescreve o arquivo)", "'a' (append - adição, escreve no final)", "'x' (exclusive creation - criação exclusiva)", "'t' (text mode - modo texto)"], "correta": "3"},
-                    {"titulo": "Lidando com Erros: Exceções", "conteudo": "Em Python, o que é uma exceção?", "opcoes": ["Um tipo especial de variável.", "Um erro que ocorre durante a execução do programa e interrompe seu fluxo normal.", "Uma função usada para criar loops.", "Um tipo de dado numérico.", "Uma palavra reservada da linguagem."], "correta": "2"},
-                    {"titulo": "Introdução à Programação Orientada a Objetos (POO)", "conteudo": "Na Programação Orientada a Objetos (POO) em Python, o que é uma 'classe'?", "opcoes": ["Um valor numérico.", "Um tipo de erro.", "Um modelo ou 'molde' usado para criar objetos (instâncias), definindo seus atributos (propriedades) e métodos (comportamentos).", "Uma função que retorna um valor booleano.", "Um tipo de laço de repetição."], "correta": "3"}
-                ]
-            }
-        }
-        with open(ARQUIVO_AULAS_PERGUNTAS, 'w') as f:
-            json.dump(aulas_perguntas, f, indent=4)
-
-    # Estrutura para aulas teóricas
-    if not os.path.exists(ARQUIVO_AULAS_TEORICAS):
-        aulas_teoricas = {
-            "Segurança Digital": {
-                "Básico": [
-                    {"titulo": "Introdução à Segurança Digital", "conteudo": "Segurança digital envolve proteger seus dados e privacidade online. É essencial para evitar golpes e vazamentos de informações."},
-                    {"titulo": "Criando Senhas Fortes", "conteudo": "Uma senha forte tem pelo menos 8 caracteres, inclui letras maiúsculas e minúsculas, números e símbolos. Evite informações pessoais óbvias."},
-                    {"titulo": "Reconhecendo Golpes Comuns", "conteudo": "Fique atento a e-mails e mensagens suspeitas pedindo informações pessoais ou financeiras. Desconfie de ofertas boas demais para ser verdade."},
-                    {"titulo": "Compartilhamento Consciente", "conteudo": "Pense duas vezes antes de postar informações pessoais nas redes sociais. Dados como RG, CPF, endereço ou número de telefone podem ser usados indevidamente."},
-                ],
-                "Intermediário": [
-                    {"titulo": "O Que é Autenticação em Dois Fatores (2FA)?", "conteudo": "2FA adiciona uma camada extra de segurança. Além da senha, você precisa de um segundo fator, como um código enviado para seu celular, para acessar sua conta."},
-                    {"titulo": "Importância das Atualizações", "conteudo": "Manter sistemas operacionais, aplicativos e antivírus atualizados corrige falhas de segurança que podem ser exploradas por criminosos."},
-                    {"titulo": "Segurança em Redes Wi-Fi Públicas", "conteudo": "Redes Wi-Fi públicas são menos seguras. Evite realizar transações bancárias ou acessar informações confidenciais. Usar uma VPN pode proteger sua conexão."},
-                ],
-                "Avançado": [
-                    {"titulo": "Entendendo Engenharia Social", "conteudo": "Engenharia social é a manipulação psicológica para que pessoas revelem informações confidenciais. Desconfie de pedidos urgentes ou incomuns por telefone ou e-mail."},
-                    {"titulo": "Benefícios dos Gerenciadores de Senhas", "conteudo": "Gerenciadores de senhas criam e armazenam senhas complexas e únicas para cada site, exigindo que você se lembre de apenas uma senha mestra."},
-                    {"titulo": "Identificando Phishing Avançado", "conteudo": "Phishing sofisticado imita sites legítimos. Sempre verifique o endereço do site (URL) antes de inserir suas credenciais. Procure pelo 'https://' e o cadeado na barra de endereço."},
-                ]
-            },
-            "Pensamento Lógico Computacional": {
-                 "Básico": [
-                    {"titulo": "O Que é Pensamento Lógico?", "conteudo": "Pensamento lógico é a habilidade de organizar ideias e informações para chegar a uma conclusão ou resolver um problema de forma estruturada."},
-                    {"titulo": "Identificação de Padrões", "conteudo": "Reconhecer padrões é fundamental para prever o próximo passo em uma sequência ou entender a lógica por trás de um conjunto de dados."},
-                    {"titulo": "Sequências e Algoritmos Simples", "conteudo": "Uma sequência de instruções é um conjunto de passos ordenados para realizar uma tarefa. Um algoritmo é uma sequência finita de instruções bem definidas."},
-                    {"titulo": "Introdução à Lógica Booleana (Verdadeiro ou Falso)", "conteudo": "A lógica booleana lida com valores de Verdadeiro (True) e Falso (False) e operações como AND, OR e NOT. É a base para decisões em programação."},
-                ],
-                "Intermediário": [
-                    {"titulo": "Instruções Condicionais (If/Else)", "conteudo": "Condicionais permitem que um programa tome decisões. 'Se' uma condição for Verdadeira, faça algo; 'Senão', faça outra coisa."},
-                    {"titulo": "Laços de Repetição (Loops)", "conteudo": "Laços permitem executar um bloco de código várias vezes. O laço 'for' é comum para repetições com um número conhecido, e 'while' para repetições baseadas em uma condição."},
-                    {"titulo": "Algoritmos com Validação de Entrada", "conteudo": "Validar a entrada de dados garante que o programa receba informações no formato esperado, evitando erros e comportamentos inesperados."},
-                ],
-                "Avançado": [
-                    {"titulo": "Tabelas Verdade e Operadores Lógicos", "conteudo": "Tabelas verdade mostram todos os resultados possíveis de uma expressão lógica. Operadores lógicos (AND, OR, NOT) combinam ou modificam valores booleanos."},
-                    {"titulo": "Expressões Lógicas Compostas", "conteudo": "Combinar múltiplos operadores lógicos e condições cria expressões complexas usadas para tomar decisões mais elaboradas em algoritmos."},
-                    {"titulo": "Desenvolvendo Algoritmos com Decisão e Repetição", "conteudo": "Algoritmos mais complexos combinam estruturas de decisão (if/else) e repetição (loops) para resolver problemas que requerem múltiplos passos e verificações."},
-                ]
-            },
-             "Programação Python": {
-                "Básico": [
-                    {"titulo": "O Que é Python?", "conteudo": "Python é uma linguagem de programação versátil e fácil de aprender, usada para desenvolvimento web, análise de dados, inteligência artificial e mais."},
-                    {"titulo": "Variáveis e Tipos de Dados Fundamentais", "conteudo": "Em Python, qual o tipo de dado mais adequado para armazenar a frase 'Olá, mundo!'?", "opcoes": ["Integer (int).", "String (str).", "Boolean (bool).", "Float (float).", "List (list)."], "correta": "2"},
-                    {"titulo": "Operadores Matemáticos e de Comparação", "conteudo": "Qual o resultado da expressão Python: `(5 * 2) - 3`?", "opcoes": ["7", "10", "13", "8", "9"], "correta": "1"},
-                    {"titulo": "Estruturas Condicionais em Python", "conteudo": "Dado o código Python: `idade = 17\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')` Qual será a saída?", "opcoes": ["Maior de idade", "Menor de idade", "Nenhum dos dois (erro).", "17", "Verdadeiro"], "correta": "2"}
-                ],
-                "Intermediário": [
-                    {"titulo": "Listas e Como Iterar Sobre Elas", "conteudo": "Qual a forma MAIS comum de percorrer todos os elementos de uma lista em Python?", "opcoes": ["Usando uma instrução `if`.", "Usando um laço `for`.", "Usando uma função matemática.", "Usando a instrução `print`.", "Usando a instrução `return`."], "correta": "2"},
-                    {"titulo": "Criando e Usando Funções", "conteudo": "Em Python, qual o principal benefício de definir e usar funções?", "opcoes": ["Elas tornam o código mais longo e difícil de entender.", "Elas permitem reutilizar blocos de código, organizar o programa e evitar repetição.", "Elas servem apenas para realizar cálculos complexos.", "Elas aumentam o consumo de memória do programa.", "Elas tornam o código mais difícil de debugar."], "correta": "2"},
-                    {"titulo": "Dicionários: Pares Chave-Valor", "conteudo": "Um dicionário em Python é uma coleção que armazena dados na forma de:", "opcoes": ["Uma lista ordenada de valores.", "Pares de chave e valor, onde cada chave é única.", "Apenas números inteiros.", "Uma sequência de caracteres.", "Uma coleção de funções."], "correta": "2"}
-                ],
-                "Avançado": [
-                    {"titulo": "Manipulação Básica de Arquivos", "conteudo": "Para adicionar novas linhas de texto a um arquivo existente sem apagar o conteúdo anterior em Python, qual modo de abertura de arquivo você usaria?", "opcoes": ["'r' (read - leitura)", "'w' (write - escrita, sobrescreve o arquivo)", "'a' (append - adição, escreve no final)", "'x' (exclusive creation - criação exclusiva)", "'t' (text mode - modo texto)"], "correta": "3"},
-                    {"titulo": "Lidando com Erros: Exceções", "conteudo": "Em Python, o que é uma exceção?", "opcoes": ["Um tipo especial de variável.", "Um erro que ocorre durante a execução do programa e interrompe seu fluxo normal.", "Uma função usada para criar loops.", "Um tipo de dado numérico.", "Uma palavra reservada da linguagem."], "correta": "2"},
-                    {"titulo": "Introdução à Programação Orientada a Objetos (POO)", "conteudo": "Na Programação Orientada a Objetos (POO) em Python, o que é uma 'classe'?", "opcoes": ["Um valor numérico.", "Um tipo de erro.", "Um modelo ou 'molde' usado para criar objetos (instâncias), definindo seus atributos (propriedades) e métodos (comportamentos).", "Uma função que retorna um valor booleano.", "Um tipo de laço de repetição."], "correta": "3"}
-                ]
-            }
-        }
-        with open(ARQUIVO_AULAS_PERGUNTAS, 'w') as f:
-            json.dump(aulas_perguntas, f, indent=4)
-
-    # Estrutura para aulas teóricas
-    if not os.path.exists(ARQUIVO_AULAS_TEORICAS):
-        aulas_teoricas = {
-            "Segurança Digital": {
-                "Básico": [
-                    {"titulo": "Introdução à Segurança Digital", "conteudo": "Segurança digital envolve proteger seus dados e privacidade online. É essencial para evitar golpes e vazamentos de informações."},
-                    {"titulo": "Criando Senhas Fortes", "conteudo": "Uma senha forte tem pelo menos 8 caracteres, inclui letras maiúsculas e minúsculas, números e símbolos. Evite informações pessoais óbvias."},
-                    {"titulo": "Reconhecendo Golpes Comuns", "conteudo": "Fique atento a e-mails e mensagens suspeitas pedindo informações pessoais ou financeiras. Desconfie de ofertas boas demais para ser verdade."},
-                    {"titulo": "Compartilhamento Consciente", "conteudo": "Pense duas vezes antes de postar informações pessoais nas redes sociais. Dados como RG, CPF, endereço ou número de telefone podem ser usados indevidamente."},
-                ],
-                "Intermediário": [
-                    {"titulo": "O Que é Autenticação em Dois Fatores (2FA)?", "conteudo": "2FA adiciona uma camada extra de segurança. Além da senha, você precisa de um segundo fator, como um código enviado para seu celular, para acessar sua conta."},
-                    {"titulo": "Importância das Atualizações", "conteudo": "Manter sistemas operacionais, aplicativos e antivírus atualizados corrige falhas de segurança que podem ser exploradas por criminosos."},
-                    {"titulo": "Segurança em Redes Wi-Fi Públicas", "conteudo": "Redes Wi-Fi públicas são menos seguras. Evite realizar transações bancárias ou acessar informações confidenciais. Usar uma VPN pode proteger sua conexão."},
-                ],
-                "Avançado": [
-                    {"titulo": "Entendendo Engenharia Social", "conteudo": "Engenharia social é a manipulação psicológica para que pessoas revelem informações confidenciais. Desconfie de pedidos urgentes ou incomuns por telefone ou e-mail."},
-                    {"titulo": "Benefícios dos Gerenciadores de Senhas", "conteudo": "Gerenciadores de senhas criam e armazenam senhas complexas e únicas para cada site, exigindo que você se lembre de apenas uma senha mestra."},
-                    {"titulo": "Identificando Phishing Avançado", "conteudo": "Phishing sofisticado imita sites legítimos. Sempre verifique o endereço do site (URL) antes de inserir suas credenciais. Procure pelo 'https://' e o cadeado na barra de endereço."},
-                ]
-            },
-            "Pensamento Lógico Computacional": {
-                 "Básico": [
-                    {"titulo": "O Que é Pensamento Lógico?", "conteudo": "Pensamento lógico é a habilidade de organizar ideias e informações para chegar a uma conclusão ou resolver um problema de forma estruturada."},
-                    {"titulo": "Identificação de Padrões", "conteudo": "Reconhecer padrões é fundamental para prever o próximo passo em uma sequência ou entender a lógica por trás de um conjunto de dados."},
-                    {"titulo": "Sequências e Algoritmos Simples", "conteudo": "Uma sequência de instruções é um conjunto de passos ordenados para realizar uma tarefa. Um algoritmo é uma sequência finita de instruções bem definidas."},
-                    {"titulo": "Introdução à Lógica Booleana (Verdadeiro ou Falso)", "conteudo": "A lógica booleana lida com valores de Verdadeiro (True) e Falso (False) e operações como AND, OR e NOT. É a base para decisões em programação."},
-                ],
-                "Intermediário": [
-                    {"titulo": "Instruções Condicionais (If/Else)", "conteudo": "Condicionais permitem que um programa tome decisões. 'Se' uma condição for Verdadeira, faça algo; 'Senão', faça outra coisa."},
-                    {"titulo": "Laços de Repetição (Loops)", "conteudo": "Laços permitem executar um bloco de código várias vezes. O laço 'for' é comum para repetições com um número conhecido, e 'while' para repetições baseadas em uma condição."},
-                    {"titulo": "Algoritmos com Validação de Entrada", "conteudo": "Validar a entrada de dados garante que o programa receba informações no formato esperado, evitando erros e comportamentos inesperados."},
-                ],
-                "Avançado": [
-                    {"titulo": "Tabelas Verdade e Operadores Lógicos", "conteudo": "Tabelas verdade mostram todos os resultados possíveis de uma expressão lógica. Operadores lógicos (AND, OR, NOT) combinam ou modificam valores booleanos."},
-                    {"titulo": "Expressões Lógicas Compostas", "conteudo": "Combinar múltiplos operadores lógicos e condições cria expressões complexas usadas para tomar decisões mais elaboradas em algoritmos."},
-                    {"titulo": "Desenvolvendo Algoritmos com Decisão e Repetição", "conteudo": "Algoritmos mais complexos combinam estruturas de decisão (if/else) e repetição (loops) para resolver problemas que requerem múltiplos passos e verificações."},
-                ]
-            },
-             "Programação Python": {
-                "Básico": [
-                    {"titulo": "O Que é Python?", "conteudo": "Python é uma linguagem de programação versátil e fácil de aprender, usada para desenvolvimento web, análise de dados, inteligência artificial e mais."},
-                    {"titulo": "Variáveis e Tipos de Dados Fundamentais", "conteudo": "Em Python, qual o tipo de dado mais adequado para armazenar a frase 'Olá, mundo!'?", "opcoes": ["Integer (int).", "String (str).", "Boolean (bool).", "Float (float).", "List (list)."], "correta": "2"},
-                    {"titulo": "Operadores Matemáticos e de Comparação", "conteudo": "Qual o resultado da expressão Python: `(5 * 2) - 3`?", "opcoes": ["7", "10", "13", "8", "9"], "correta": "1"},
-                    {"titulo": "Estruturas Condicionais em Python", "conteudo": "Dado o código Python: `idade = 17\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')` Qual será a saída?", "opcoes": ["Maior de idade", "Menor de idade", "Nenhum dos dois (erro).", "17", "Verdadeiro"], "correta": "2"}
-                ],
-                "Intermediário": [
-                    {"titulo": "Listas e Como Iterar Sobre Elas", "conteudo": "Qual a forma MAIS comum de percorrer todos os elementos de uma lista em Python?", "opcoes": ["Usando uma instrução `if`.", "Usando um laço `for`.", "Usando uma função matemática.", "Usando a instrução `print`.", "Usando a instrução `return`."], "correta": "2"},
-                    {"titulo": "Criando e Usando Funções", "conteudo": "Em Python, qual o principal benefício de definir e usar funções?", "opcoes": ["Elas tornam o código mais longo e difícil de entender.", "Elas permitem reutilizar blocos de código, organizar o programa e evitar repetição.", "Elas servem apenas para realizar cálculos complexos.", "Elas aumentam o consumo de memória do programa.", "Elas tornam o código mais difícil de debugar."], "correta": "2"},
-                    {"titulo": "Dicionários: Pares Chave-Valor", "conteudo": "Um dicionário em Python é uma coleção que armazena dados na forma de:", "opcoes": ["Uma lista ordenada de valores.", "Pares de chave e valor, onde cada chave é única.", "Apenas números inteiros.", "Uma sequência de caracteres.", "Uma coleção de funções."], "correta": "2"}
-                ],
-                "Avançado": [
-                    {"titulo": "Manipulação Básica de Arquivos", "conteudo": "Para adicionar novas linhas de texto a um arquivo existente sem apagar o conteúdo anterior em Python, qual modo de abertura de arquivo você usaria?", "opcoes": ["'r' (read - leitura)", "'w' (write - escrita, sobrescreve o arquivo)", "'a' (append - adição, escreve no final)", "'x' (exclusive creation - criação exclusiva)", "'t' (text mode - modo texto)"], "correta": "3"},
-                    {"titulo": "Lidando com Erros: Exceções", "conteudo": "Em Python, o que é uma exceção?", "opcoes": ["Um tipo especial de variável.", "Um erro que ocorre durante a execução do programa e interrompe seu fluxo normal.", "Uma função usada para criar loops.", "Um tipo de dado numérico.", "Uma palavra reservada da linguagem."], "correta": "2"},
-                    {"titulo": "Introdução à Programação Orientada a Objetos (POO)", "conteudo": "Na Programação Orientada a Objetos (POO) em Python, o que é uma 'classe'?", "opcoes": ["Um valor numérico.", "Um tipo de erro.", "Um modelo ou 'molde' usado para criar objetos (instâncias), definindo seus atributos (propriedades) e métodos (comportamentos).", "Uma função que retorna um valor booleano.", "Um tipo de laço de repetição."], "correta": "3"}
-                ]
-            }
-        }
-        with open(ARQUIVO_AULAS_PERGUNTAS, 'w') as f:
-            json.dump(aulas_perguntas, f, indent=4)
-
-    # Estrutura para aulas teóricas
-    if not os.path.exists(ARQUIVO_AULAS_TEORICAS):
-        aulas_teoricas = {
-            "Segurança Digital": {
-                "Básico": [
-                    {"titulo": "Introdução à Segurança Digital", "conteudo": "Segurança digital envolve proteger seus dados e privacidade online. É essencial para evitar golpes e vazamentos de informações."},
-                    {"titulo": "Criando Senhas Fortes", "conteudo": "Uma senha forte tem pelo menos 8 caracteres, inclui letras maiúsculas e minúsculas, números e símbolos. Evite informações pessoais óbvias."},
-                    {"titulo": "Reconhecendo Golpes Comuns", "conteudo": "Fique atento a e-mails e mensagens suspeitas pedindo informações pessoais ou financeiras. Desconfie de ofertas boas demais para ser verdade."},
-                    {"titulo": "Compartilhamento Consciente", "conteudo": "Pense duas vezes antes de postar informações pessoais nas redes sociais. Dados como RG, CPF, endereço ou número de telefone podem ser usados indevidamente."},
-                ],
-                "Intermediário": [
-                    {"titulo": "O Que é Autenticação em Dois Fatores (2FA)?", "conteudo": "2FA adiciona uma camada extra de segurança. Além da senha, você precisa de um segundo fator, como um código enviado para seu celular, para acessar sua conta."},
-                    {"titulo": "Importância das Atualizações", "conteudo": "Manter sistemas operacionais, aplicativos e antivírus atualizados corrige falhas de segurança que podem ser exploradas por criminosos."},
-                    {"titulo": "Segurança em Redes Wi-Fi Públicas", "conteudo": "Redes Wi-Fi públicas são menos seguras. Evite realizar transações bancárias ou acessar informações confidenciais. Usar uma VPN pode proteger sua conexão."},
-                ],
-                "Avançado": [
-                    {"titulo": "Entendendo Engenharia Social", "conteudo": "Engenharia social é a manipulação psicológica para que pessoas revelem informações confidenciais. Desconfie de pedidos urgentes ou incomuns por telefone ou e-mail."},
-                    {"titulo": "Benefícios dos Gerenciadores de Senhas", "conteudo": "Gerenciadores de senhas criam e armazenam senhas complexas e únicas para cada site, exigindo que você se lembre de apenas uma senha mestra."},
-                    {"titulo": "Identificando Phishing Avançado", "conteudo": "Phishing sofisticado imita sites legítimos. Sempre verifique o endereço do site (URL) antes de inserir suas credenciais. Procure pelo 'https://' e o cadeado na barra de endereço."},
-                ]
-            },
-            "Pensamento Lógico Computacional": {
-                 "Básico": [
-                    {"titulo": "O Que é Pensamento Lógico?", "conteudo": "Pensamento lógico é a habilidade de organizar ideias e informações para chegar a uma conclusão ou resolver um problema de forma estruturada."},
-                    {"titulo": "Identificação de Padrões", "conteudo": "Reconhecer padrões é fundamental para prever o próximo passo em uma sequência ou entender a lógica por trás de um conjunto de dados."},
-                    {"titulo": "Sequências e Algoritmos Simples", "conteudo": "Uma sequência de instruções é um conjunto de passos ordenados para realizar uma tarefa. Um algoritmo é uma sequência finita de instruções bem definidas."},
-                    {"titulo": "Introdução à Lógica Booleana (Verdadeiro ou Falso)", "conteudo": "A lógica booleana lida com valores de Verdadeiro (True) e Falso (False) e operações como AND, OR e NOT. É a base para decisões em programação."},
-                ],
-                "Intermediário": [
-                    {"titulo": "Instruções Condicionais (If/Else)", "conteudo": "Condicionais permitem que um programa tome decisões. 'Se' uma condição for Verdadeira, faça algo; 'Senão', faça outra coisa."},
-                    {"titulo": "Laços de Repetição (Loops)", "conteudo": "Laços permitem executar um bloco de código várias vezes. O laço 'for' é comum para repetições com um número conhecido, e 'while' para repetições baseadas em uma condição."},
-                    {"titulo": "Algoritmos com Validação de Entrada", "conteudo": "Validar a entrada de dados garante que o programa receba informações no formato esperado, evitando erros e comportamentos inesperados."},
-                ],
-                "Avançado": [
-                    {"titulo": "Tabelas Verdade e Operadores Lógicos", "conteudo": "Tabelas verdade mostram todos os resultados possíveis de uma expressão lógica. Operadores lógicos (AND, OR, NOT) combinam ou modificam valores booleanos."},
-                    {"titulo": "Expressões Lógicas Compostas", "conteudo": "Combinar múltiplos operadores lógicos e condições cria expressões complexas usadas para tomar decisões mais elaboradas em algoritmos."},
-                    {"titulo": "Desenvolvendo Algoritmos com Decisão e Repetição", "conteudo": "Algoritmos mais complexos combinam estruturas de decisão (if/else) e repetição (loops) para resolver problemas que requerem múltiplos passos e verificações."},
-                ]
-            },
-             "Programação Python": {
-                "Básico": [
-                    {"titulo": "O Que é Python?", "conteudo": "Python é uma linguagem de programação versátil e fácil de aprender, usada para desenvolvimento web, análise de dados, inteligência artificial e mais."},
-                    {"titulo": "Variáveis e Tipos de Dados Fundamentais", "pergunta": "Em Python, qual o tipo de dado mais adequado para armazenar a frase 'Olá, mundo!'?", "opcoes": ["Integer (int).", "String (str).", "Boolean (bool).", "Float (float).", "List (list)."], "correta": "2"},
-                    {"titulo": "Operadores Matemáticos e de Comparação", "pergunta": "Qual o resultado da expressão Python: `(5 * 2) - 3`?", "opcoes": ["7", "10", "13", "8", "9"], "correta": "1"},
-                     {"titulo": "Estruturas Condicionais em Python", "pergunta": "Dado o código Python: `idade = 17\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')` Qual será a saída?", "opcoes": ["Maior de idade", "Menor de idade", "Nenhum dos dois (erro).", "17", "Verdadeiro"], "correta": "2"}
-                ],
-                "Intermediário": [
-                    {"titulo": "Listas e Como Iterar Sobre Elas", "pergunta": "Qual a forma MAIS comum de percorrer todos os elementos de uma lista em Python?", "opcoes": ["Usando uma instrução `if`.", "Usando um laço `for`.", "Usando uma função matemática.", "Usando a instrução `print`.", "Usando a instrução `return`."], "correta": "2"},
-                    {"titulo": "Criando e Usando Funções", "pergunta": "Em Python, qual o principal benefício de definir e usar funções?", "opcoes": ["Elas tornam o código mais longo e difícil de entender.", "Elas permitem reutilizar blocos de código, organizar o programa e evitar repetição.", "Elas servem apenas para realizar cálculos complexos.", "Elas aumentam o consumo de memória do programa.", "Elas tornam o código mais difícil de debugar."], "correta": "2"},
-                    {"titulo": "Dicionários: Pares Chave-Valor", "pergunta": "Um dicionário em Python é uma coleção que armazena dados na forma de:", "opcoes": ["Uma lista ordenada de valores.", "Pares de chave e valor, onde cada chave é única.", "Apenas números inteiros.", "Uma sequência de caracteres.", "Uma coleção de funções."], "correta": "2"}
-                ],
-                "Avançado": [
-                    {"titulo": "Manipulação Básica de Arquivos", "pergunta": "Para adicionar novas linhas de texto a um arquivo existente sem apagar o conteúdo anterior em Python, qual modo de abertura de arquivo você usaria?", "opcoes": ["'r' (read - leitura)", "'w' (write - escrita, sobrescreve o arquivo)", "'a' (append - adição, escreve no final)", "'x' (exclusive creation - criação exclusiva)", "'t' (text mode - modo texto)"], "correta": "3"},
-                    {"titulo": "Lidando com Erros: Exceções", "pergunta": "Em Python, o que é uma exceção?", "opcoes": ["Um tipo especial de variável.", "Um erro que ocorre durante a execução do programa e interrompe seu fluxo normal.", "Uma função usada para criar loops.", "Um tipo de dado numérico.", "Uma palavra reservada da linguagem."], "correta": "2"},
-                    {"titulo": "Introdução à Programação Orientada a Objetos (POO)", "pergunta": "Na Programação Orientada a Objetos (POO) em Python, o que é uma 'classe'?", "opcoes": ["Um valor numérico.", "Um tipo de erro.", "Um modelo ou 'molde' usado para criar objetos (instâncias), definindo seus atributos (propriedades) e métodos (comportamentos).", "Uma função que retorna um valor booleano.", "Um tipo de laço de repetição."], "correta": "3"}
+                    {"titulo": "Manipulação Básica de Arquivos", "conteudo": "Python permite ler e escrever arquivos facilmente. O modo 'r' abre para leitura, 'w' para escrita (sobrescreve), e 'a' para adicionar conteúdo ao final do arquivo."},
+                    {"titulo": "Lidando com Erros: Exceções", "conteudo": "Exceções são erros detectados durante a execução. Blocos try/except permitem capturar e tratar esses erros, evitando que o programa termine abruptamente."},
+                    {"titulo": "Introdução à Programação Orientada a Objetos (POO)", "conteudo": "POO é um paradigma que usa 'classes' como modelos para criar 'objetos'. Objetos têm atributos (dados) e métodos (funções), permitindo representar entidades do mundo real no código."}
                 ]
             }
         }
         with open(ARQUIVO_AULAS_TEORICAS, 'w') as f:
             json.dump(aulas_teoricas, f, indent=4)
-
-
 def carregar_usuarios():
     """Carrega dados dos usuários do arquivo JSON."""
     try:
