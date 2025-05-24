@@ -1,15 +1,33 @@
 import json
 import os
 import re
+import webbrowser
 from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ARQUIVO_USUARIOS = os.path.join(BASE_DIR, 'users.json')
-# Arquivo de aulas de perguntas
+# Mantemos o arquivo de aulas de perguntas
 ARQUIVO_AULAS_PERGUNTAS = os.path.join(BASE_DIR, 'aulas_perguntas.json')
-# Arquivo para aulas teóricas
+# Novo arquivo para aulas teóricas
 ARQUIVO_AULAS_TEORICAS = os.path.join(BASE_DIR, 'aulas_teoricas.json')
 
+LINKS_PDFS = {
+    "Segurança Digital": {
+        "Básico": "https://drive.google.com/file/d/1UjHgqKRnKDH8TiSH1dwee-2Z0nGdXqaP/view?usp=drive_link",
+        "Intermediário": "https://drive.google.com/file/d/1soIjj35hX2rJVPekKatbiMNfMiQeBQMW/view?usp=drive_link",
+        "Avançado": "https://drive.google.com/file/d/1FbNttB2ETHipszzWp1dvXalOwld45Ng0/view?usp=drive_linkf"
+    },
+    "Pensamento Lógico Computacional": {
+        "Básico": "https://drive.google.com/file/d/1zhGgRdCtEjPXM0ihOfoQlSY2-OHEiSBH/view?usp=drive_link",
+        "Intermediário": "https://drive.google.com/file/d/1A3SU9K1Ayc097DJUgY5WA29RKupHpgM2/view?usp=drive_link",
+        "Avançado": "https://drive.google.com/file/d/1x1wFEbZg7kl87EkmP6vcXy2G1uMAMF1O/view?usp=drive_link"
+    },
+    "Programação Python": {
+        "Básico": "https://drive.google.com/file/d/12VMq1m0bn5k9IH3E0TfTX6DrKphhLZdj/view?usp=drive_link",
+        "Intermediário": "https://drive.google.com/file/d/1ZIvpIXGExhZIWRbstYJAn_xnYBwfRieH/view?usp=drive_link",
+        "Avançado": "https://drive.google.com/file/d/1QA48V9LL5J-qcX8Rrqu0j-3UVz7ZkEB0/view?usp=drive_link"
+    }
+}
 
 def garantir_arquivos():
     """Garante que os arquivos JSON existam com estrutura inicial."""
@@ -75,7 +93,7 @@ def garantir_arquivos():
         with open(ARQUIVO_AULAS_PERGUNTAS, 'w') as f:
             json.dump(aulas_perguntas, f, indent=4)
 
-    # Estrutura para aulas teóricas
+    # Nova estrutura para aulas teóricas
     if not os.path.exists(ARQUIVO_AULAS_TEORICAS):
         aulas_teoricas = {
             "Segurança Digital": {
@@ -368,7 +386,7 @@ def executar_aulas_teoricas(usuario):
     """Executa o módulo de aulas teóricas."""
     aulas_teoricas = carregar_aulas_teoricas()
     usuarios = carregar_usuarios()
-     # Acessa o progresso específico de teoricas
+    # Acessa o progresso específico de teoricas
     progresso = usuarios[usuario].get("progresso", {}).get("teoricas", {})
 
     while True:
@@ -376,7 +394,8 @@ def executar_aulas_teoricas(usuario):
         modulos = list(aulas_teoricas.keys())
         for i, modulo in enumerate(modulos, 1):
             print(f"[{i}] {modulo}")
-        print(f"[{len(modulos) + 1}] Voltar ao Menu Principal")
+        print(f"[{len(modulos) + 1}] Visualizar PDFs das Aulas")
+        print(f"[{len(modulos) + 2}] Voltar ao Menu Principal")
 
         escolha = input("\nEscolha um módulo: ")
         if escolha.isdigit() and 1 <= int(escolha) <= len(modulos):
@@ -417,28 +436,61 @@ def executar_aulas_teoricas(usuario):
                             salvar_usuarios(usuarios)
                             print("✅ Marcada como lida!")
                         else:
-                             input("\nPressione Enter para continuar...")
-
+                            input("\nPressione Enter para continuar...")
 
                     # Verifica se todas as aulas do nível teórico foram lidas
                     total_aulas_nivel = len(aulas_teoricas[modulo][nivel])
                     aulas_lidas_nivel = len(progresso.get(modulo, {}).get(nivel, []))
                     if aulas_lidas_nivel == total_aulas_nivel:
-                         print(f"\n🎉 Nível {nivel} Teórico concluído (todas as aulas lidas)!")
+                        print(f"\n🎉 Nível {nivel} Teórico concluído (todas as aulas lidas)!")
                     else:
-                         print(f"\nContinuando no Nível {nivel} Teórico. {aulas_lidas_nivel}/{total_aulas_nivel} aulas lidas.")
-
+                        print(f"\nContinuando no Nível {nivel} Teórico. {aulas_lidas_nivel}/{total_aulas_nivel} aulas lidas.")
 
                 elif escolha_nivel == str(len(niveis) + 1):
                     break
                 else:
                     print("❌ Opção inválida.")
 
-        elif escolha == str(len(modulos) + 1):
+        elif escolha == str(len(modulos) + 1):  # Opção para Visualizar PDFs
+            print("\n=== VISUALIZAR PDFs DAS AULAS ===")
+            materias = list(LINKS_PDFS.keys())
+            for i, materia in enumerate(materias, 1):
+                print(f"[{i}] {materia}")
+            print(f"[{len(materias) + 1}] Voltar para Módulos Teóricos")
+
+            escolha_materia = input("\nEscolha uma matéria para visualizar PDFs: ")
+            if escolha_materia == str(len(materias) + 1):
+                continue  # Volta para o início do loop de módulos teóricos
+
+            if escolha_materia.isdigit() and 1 <= int(escolha_materia) <= len(materias):
+                materia = materias[int(escolha_materia) - 1]
+                
+                while True:  # Loop de níveis da matéria
+                    print(f"\n=== NÍVEIS DISPONÍVEIS PARA {materia.upper()} ===")
+                    niveis = list(LINKS_PDFS[materia].keys())
+                    for i, nivel in enumerate(niveis, 1):
+                        print(f"[{i}] {nivel}")
+                    print(f"[{len(niveis) + 1}] Voltar para Matérias")
+
+                    escolha_nivel = input("\nEscolha um nível para abrir o PDF: ")
+                    if escolha_nivel == str(len(niveis) + 1):
+                        break  # Volta para a lista de matérias
+
+                    if escolha_nivel.isdigit() and 1 <= int(escolha_nivel) <= len(niveis):
+                        nivel = niveis[int(escolha_nivel) - 1]
+                        url = LINKS_PDFS[materia][nivel]
+                        print(f"\nAbrindo PDF de {materia} - Nível {nivel} no navegador...")
+                        webbrowser.open(url)
+                        input("\nPressione Enter para continuar...")
+                    else:
+                        print("❌ Opção inválida.")
+            else:
+                print("❌ Opção inválida.")
+
+        elif escolha == str(len(modulos) + 2):
             break
         else:
             print("❌ Opção inválida.")
-
 
 def menu():
     """Menu principal do programa."""
