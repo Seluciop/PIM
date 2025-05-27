@@ -6,9 +6,9 @@ from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ARQUIVO_USUARIOS = os.path.join(BASE_DIR, 'users.json')
-# Mantemos o arquivo de aulas de perguntas
+# Arquivo de aulas de perguntas
 ARQUIVO_AULAS_PERGUNTAS = os.path.join(BASE_DIR, 'aulas_perguntas.json')
-# Novo arquivo para aulas teóricas
+# Arquivo para aulas teóricas
 ARQUIVO_AULAS_TEORICAS = os.path.join(BASE_DIR, 'aulas_teoricas.json')
 
 LINKS_PDFS = {
@@ -93,7 +93,7 @@ def garantir_arquivos():
         with open(ARQUIVO_AULAS_PERGUNTAS, 'w') as f:
             json.dump(aulas_perguntas, f, indent=4)
 
-    # Nova estrutura para aulas teóricas
+    # Estrutura para aulas teóricas
     if not os.path.exists(ARQUIVO_AULAS_TEORICAS):
         aulas_teoricas = {
             "Segurança Digital": {
